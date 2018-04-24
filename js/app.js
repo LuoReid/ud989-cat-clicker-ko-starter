@@ -9,18 +9,20 @@ var ViewModel = function() {
   };
 
   this.level = ko.computed(function() {
-    if (this.clickCount() < 10) {
-      return 'New born';
-    }
-    if (this.clickCount() < 20) {
-      return 'Infant';
-    }
-    if (this.clickCount() < 30) {
-      return 'Teen';
+    let title;
+    const clicks = this.clickCount();
+    if (clicks < 10) {
+      title = 'Newborn';
+    } else if (clicks < 20) {
+      title = 'Infant';
+    } else if (clicks < 30) {
+      title = 'Teen';
+    } else if (clicks < 40) {
+      title = 'Adult';
     } else {
-      return 'New born';
+      title = 'Ninja';
     }
-    return '12';
+    return title;
   }, this);
 
   this.nickNames = ko.observableArray([
