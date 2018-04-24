@@ -1,13 +1,8 @@
-var ViewModel = function() {
+var Cat = function() {
   this.clickCount = ko.observable(0);
   this.name = ko.observable('Tabby');
   this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
   this.imgAttribution = ko.observable('https://www.flicker.com/photos/big');
-
-  this.incrementCounter = function() {
-    this.clickCount(this.clickCount() + 1);
-  };
-
   this.level = ko.computed(function() {
     let title;
     const clicks = this.clickCount();
@@ -31,6 +26,13 @@ var ViewModel = function() {
     { nickName: 'Mr.T' },
     { nickName: 'Tabitha Tab Tabby Catty Cat' }
   ]);
+}
+
+var ViewModel = function() {
+  this.currentCat = ko.observable(new Cat());
+  this.incrementCounter = function() {
+    this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+  };
 }
 
 ko.applyBindings(new ViewModel());
