@@ -22,6 +22,13 @@ var ViewModel = function() {
     }
     return '12';
   }, this);
+
+  this.nickNames = ko.observableArray([
+    { nickName: 'Tabtab' },
+    { nickName: 'T-Bone' },
+    { nickName: 'Mr.T' },
+    { nickName: 'Tabitha Tab Tabby Catty Cat' }
+  ]);
 }
 
 ko.applyBindings(new ViewModel());
